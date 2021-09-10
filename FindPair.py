@@ -11,4 +11,6 @@ for i in range(int_Lenth):
         if listA[i]+listA[c] == int(int_number1):
             listB.insert(int_f,(listA[i],listA[c]))
             int_f += 1
+        else:
+            listB = []
 print(listB)
