@@ -2,13 +2,24 @@ print("Function - Đếm loại ký tự")
 print("Cho chuỗi có sẵn : s = 'Hello World! 123'")
 s = "Hello World! 123"
 int_len = len(s)
-countUper = 0
+ansSum = {}
 ans = {}
-def count_char_type(abc):
-    for i in range(abc):
-        if s[i].islower:
-            countUper =+ 1
+def count_char_type(str):
+    countUper = 0
+    countLower = 0
+    countDigit = 0
+    for i in str:
+        if i.isupper():
+            countUper = countUper + 1
             ans["UPPERCASE"] = countUper
-    print(ans)
+        if i.islower():
+            countLower = countLower + 1
+            ans["LOWERCASE"] = countLower
+        if i.isdigit():
+            countDigit = countDigit + 1
+    ansSum["LETTERS"] = countUper + countLower
+    ansSum["CASE"] = ans
+    ansSum["DIGITS"] = countDigit
+    print(ansSum)
 
-count_char_type(int_len)
+count_char_type(s)
