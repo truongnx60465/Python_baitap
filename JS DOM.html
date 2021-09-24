@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script language="javascript">
+      function change_color1() {
+        document.getElementById("denVau").style.color = "blue";
+      }
+      function change_background() {
+        document.getElementById("tinhAnh").style.background = "blue";
+      }
+      function change_color2() {
+        document.getElementById("tinhAnh").style.color = "yellow";
+      }
+
+      function change_color3() {
+        document.getElementById("tinhAnh").style.color = "red";
+      }
+      function change_size(number) {
+        document.getElementById("denVau").style.fontSize = number;
+        document.getElementById("tinhAnh").style.fontSize = number;
+      }
+      function copyContent(a, b) {
+        var div = document.getElementById(a);
+        var div2 = document.getElementById(b);
+        div.innerHTML = div2.innerHTML;
+      }
+      function increaseFontSize(number) {
+        newNumber = number.split("px");
+        getIncrease = Number(newNumber[0]);
+        for (getIncrease; getIncrease < 30; getIncrease++) {
+          newString = String(getIncrease++);
+          getnewString = newString + "px";
+          document.getElementById("denVau").style.fontSize = getnewString;
+        }
+      }
+    </script>
+    <div id="denVau">
+      <pre>
+            Em dạo này ổn không? Còn đi làm ở công ty cũ
+            Còn đi sớm về hôm mà đồng lương vẫn không khi đủ
+            Đồng nghiệp của Em thế nào? Trong thang máy có chào với nhau?
+            Có nói qua nói lại, và những cuộc họp có đào bới nhau?
+            Sếp của Em thế nào, dễ tính hay thường gắt gỏng?
+            Anh ta có thương nhân viên hay thường buông lời sắc mỏng?
+            Em còn thiếu ngủ, trong những lần phải chạy deadline?
+            Em quên ăn quên uống, quên cả việc chải lại tóc tai?
+            Những đôi giày cao gót chắc còn làm đau em
+            Tiền bao nhiêu cho đủ, ai biết ngày sau em?
+            Mắt em còn mỏi không 8 tiếng nhìn màn hình
+            Những tối đi về đơn độc, em thấy lòng mình lặng thinh?
+            Và đừng để đời chỉ là những chuỗi ngày được chấm công
+            Miệng cười như nắng hạ, nhưng trong lòng thì chớm đông
+            Nếu mà mệt quá, giữa thành phố sống chồng lên nhau
+            Cùng lắm thì mình về quê, mình nuôi cá và trồng thêm rau
+        </pre
+      >
+    </div>
+    <div id="tinhAnh">
+      <pre>
+            Thuyền xa sông
+            Thuyền tìm ra biển lớn
+            Theo tiếng gọi
+            Ngàn con sóng khơi xa
+            Thuyền có hay
+            Sông lặng lòng yên ả
+            Vẫn đợi thuyền
+            Nhớ bến sẽ quay về
+            Ngày em đi
+            Để mình anh đứng đó
+            Em có hay
+            Lòng anh mãi thương em
+            Đừng cách xa cho mi buồn đẫm lệ
+            Rơi vì người đi mãi không về
+            Có phải em là con thuyền nhỏ kia
+            Bỏ mặc anh dòng sông trôi buồn bã
+            Có phải em vội quên đi tất cả
+            Ngày sông thuyền
+            Thủy chung một bến đò
+            Em biết chăng ngoài khơi xa bão táp
+            Có biết bao
+            Con thuyền phải lênh đênh
+            Về bên anh không ồn ào sóng cả
+            Chỉ hiền hoà yên ả nặng tình anh
+        </pre
+      >
+    </div>
+
+    <input
+      type="button"
+      value="Change backgroud"
+      onclick="change_background()"
+    />
+    <input type="button" value="Đổi màu đoạn 1" onclick="change_color1()" />
+    <input type="button" value="Đổi màu đoạn 2" onclick="change_color2()" />
+    <input type="button" value="Đổi màu đỏ" onclick="change_color3()" />
+    <input
+      type="button"
+      value="Đổi size 2 đoạn"
+      onclick="change_size('20px')"
+    />
+    <input
+      type="button"
+      value="CopyContent"
+      onclick="copyContent('denVau','tinhAnh')"
+    />
+    <input
+      type="button"
+      value="increaseFontSize"
+      onclick="increaseFontSize('20px')"
+    />
+  </body>
+</html>
