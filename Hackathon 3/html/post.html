@@ -1,0 +1,42 @@
+{% extends 'layout.html' %} {% block title %} Homepage {% endblock %} {% block
+content %} {% if post %}
+
+<section class="section">
+    <h2 class="section-header">{{ post['title'] }}</h2>
+
+    <form action="/post/{{ post['id'] }}" method="POST">
+        <div class="form-field">
+            <label for="title">Title</label>
+            <br />
+            <input type="text" name="title" value="{{ post['title'] }}" />
+        </div>
+
+        <div class="form-field">
+            <label for="content">Content</label>
+            <br />
+            <textarea name="content" id="" cols="30" rows="10">
+{{ post['content'] }}</textarea
+            >
+        </div>
+
+        <div class="form-field">
+            <button type="submit">Save post</button>
+        </div>
+    </form>
+</section>
+
+{% with messages = get_flashed_messages() %} {% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %} {% endwith %} {% else %}
+
+<section class="section">
+    <h2 class="section-header">Post does not exist</h2>
+
+    <a href="/">Back to homepage</a>
+</section>
+
+{% endif %} {% endblock %}

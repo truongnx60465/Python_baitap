@@ -1,0 +1,49 @@
+{% extends 'layout.html' %} {% block title %} Resignation Letter {% endblock %}
+{% block content %}
+
+<section class="section">
+    <h2 class="section-header">Resignation Letter</h2>
+    <p>Quickly create a file of resignation letter</p>
+
+    <form action="/resignation-letter" method="POST">
+        <div class="form-field">
+            <label for="title">Fullname</label>
+            <br />
+            <input type="text" name="fullname" />
+        </div>
+
+        <div class="form-field">
+            <label for="reason">Reason</label>
+            <br />
+            <textarea name="reason" id="" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="form-field">
+            <p>Note, this is just an example for fun. Don't be grumpy :)</p>
+        </div>
+
+        <div class="form-field">
+            <button type="submit">Create file</button>
+        </div>
+    </form>
+</section>
+
+{% if file_created %}
+
+<p>
+    File created! Click on the link to download the file and send it to your
+    boss right away :)
+    <a
+        href="{{ url_for('static', filename='resignation-letter.docx') }}"
+        download="{{ url_for('static', filename='resignation-letter.docx') }}"
+        >Download</a
+    >
+</p>
+
+{% endif %} {% with messages = get_flashed_messages() %} {% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %} {% endwith %} {% endblock %}

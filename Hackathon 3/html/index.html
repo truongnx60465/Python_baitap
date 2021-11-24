@@ -1,0 +1,70 @@
+{% extends 'layout.html' %} {% block title %} Homepage {% endblock %} {% block
+content %}
+
+<section class="section">
+    {% if g.user %}
+    <h2 class="section-header">
+        Hello {{ g.user['username'] }}! What's in your mind?
+    </h2>
+
+    <form action="/" method="POST">
+        <div>
+            <label for="title">Title</label>
+            <br />
+            <input type="text" name="title" />
+        </div>
+
+        <div>
+            <label for="content">Content</label>
+            <br />
+            <textarea name="content" id="" cols="30" rows="10"></textarea>
+        </div>
+
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <div>
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %} {% endwith %}
+
+        <div>
+            <button type="submit">Post</button>
+        </div>
+    </form>
+    {% else %}
+    <p><a href="/login">Sign in</a> to post and share with everyone</p>
+    {% endif %}
+</section>
+
+<section>
+    <h2>All posts</h2>
+
+    <div>
+        {% for post in posts %}
+
+        <hr />
+        <div>
+            <div>
+                <p>
+                    Post by:
+                    <a href="/users/{{ post['author'] }}"
+                        >{{ post['username'] }}</a
+                    >, at: {{ post['created'] }}
+                </p>
+            </div>
+
+            <div>
+                <h3>{{ post['title'] }}</h3>
+                <p>{{ post['content'] }}</p>
+
+                {% if g.user and g.user['id'] == post['author'] %}
+                <a href="/post/{{ post['id'] }}">Edit this post</a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
