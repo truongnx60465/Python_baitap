@@ -1,11 +1,10 @@
 from pymysql import connect, cursors, Error
 import sys
 
-# Tạo CSDL vs file game_log.sql, khởi chạy CSDL trước
 config = {
     'host': 'localhost',
     'user': 'root',
-    'password': '123456',
+    'password': 'Tbd!@240992',
     'database': 'game_log',
     'cursorclass': cursors.DictCursor
 }
@@ -45,7 +44,7 @@ def get_last_game():
     game = cur.fetchone()
 
     if not game:
-        raise Exception('Không có lịch sử game\nChơi vài game vui vẻ đi 😉\n')
+        raise Exception('Không có lịch sử game\nChơi vài game vui vẻ đi :D \n')
 
     sql = f'''
     SELECT *
@@ -73,7 +72,7 @@ def history():
     records = cur.fetchall()
 
     if not records:
-        raise Exception('Không có lịch sử game\nChơi vài game vui vẻ đi 😉\n')
+        raise Exception('Không có lịch sử game\nChơi vài game vui vẻ đi :D\n')
 
     total_game = sum([r['game_won'] for r in records])
     return total_game, records

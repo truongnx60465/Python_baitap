@@ -183,7 +183,7 @@ class Game:
             raise error.PlayingError()
         else:
             total_game, records = db.history()
-            print(f'Hôm nay đã chơi: {total_game} ván bài 🤣\n')
+            print(f'Hôm nay đã chơi: {total_game} ván bài \n')
 
             for r in records:
                 print(f'{r["player"]:6} thắng {r["game_won"]} ván')

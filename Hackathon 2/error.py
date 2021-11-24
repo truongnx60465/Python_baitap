@@ -1,5 +1,4 @@
 class Error(Exception):
-    '''Base class cho game error'''
     pass
 
 
@@ -60,7 +59,7 @@ class NotDealtError(Error):
 class FlippedError(Error):
     '''Lỗi khi lật bài nhiều lần'''
 
-    message = 'Bài đã lật rồi mà :)\nCay cú thì làm ván mới gỡ x2 nhé :)\n'
+    message = 'Bài đã lật rồi mà :)\nSad\n'
 
     def __init__(self, message=message):
         self.message = message
