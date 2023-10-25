@@ -68,7 +68,7 @@ class SavingAccount(BankAccount):
         return self.balance * self.monthly_interest_rate
 
 
-acc = Customer("Trường Nguyễn", "07/09/1991", "truongn.nguyen1@onemount.com", "0938338332")
+acc = Customer("Tommy", "07/09/2000", "truongn.nguyen", "0938338332")
 
 my_account = SavingAccount("1", acc, 1_000_000_000)
 my_account.display()
